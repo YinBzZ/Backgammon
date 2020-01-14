@@ -29,7 +29,7 @@ document.getElementById("butt1").onclick = function() {
 }
 document.getElementById("butt2").onclick = function() {
 	moshi = 1;
-	alert("机器没脑子,还会覆盖你的方块和他自己的方块 (其实是不会添加智商 (..•˘_˘•..) )")
+	alert("机器没脑子 (其实是我不会加智商 (..•˘_˘•..)?? )")
 	GamerName = "你";
 	GameAnim.main(0);
 	setTimeout(function() {
