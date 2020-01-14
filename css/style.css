@@ -1,0 +1,116 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+.wrap {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.wrap {
+	background: #CF793C;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.wrap .main {
+	height: 50vh;
+	width: 60vw;
+	border-radius: 25px;
+	position: absolute;
+	top: 30%;
+}
+
+.wrap .top {
+	height: 20vh;
+	width: 60vw;
+	overflow: hidden;
+	display: flex;
+	background: white;
+	justify-content: space-between;
+	border-radius: 25px;
+	font-size: 1.5em;
+	position: absolute;
+	top: 2%;
+	color: gold;
+}
+
+.wrap .top .GameScoreStyle{
+	height: 100%;
+	width: 49.8%;
+	background: #8B0000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrap .tisp {
+	position: absolute;
+	z-index: 999;
+	align-self: center;
+	background: #8B0000;
+	display: none;
+	height: 40vh;
+	width: 85vw;
+	border-radius: 25px;
+	font-size: 2em;
+	color: gold;
+	text-align: center;
+	line-height: 8.8em;
+}
+
+.wrap .main .piece {
+	width: 16%;
+	background: #E59D53;
+	float: left;
+	margin: 1px;
+	border-radius: 5px;
+}
+
+.wrap .moshi {
+	height: 6vh;
+	width: 40vw;
+	border-radius: 25px;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	top: 16%;
+}
+
+#butt1,
+#butt2 {
+	height: 100%;
+	width: 49.6%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: gold;
+	font-weight: bold;
+	background: #8B0000;
+}
+
+@media only screen and (max-width:500px) {
+	.wrap {
+		background: rgb(213, 176, 149);
+	}
+
+	.wrap .main {
+		width: 80vw;
+		height: 50vh;
+		border-radius: 5%;
+	}
+
+	.wrap .top {
+		height: 10vh;
+		width: 90vw;
+	}
+}
