@@ -1,11 +1,11 @@
 var gameAerry1 = [
-		[0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0]
-	],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0]
+],
 	gameAerry2 = [
 		[0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0],
@@ -24,28 +24,28 @@ var main = document.getElementsByClassName("piece"),
 	RandomNum_exel = [],
 	GamerName = "Gamer1";
 
-document.getElementById("butt1").onclick = function() {
+document.getElementById("butt1").onclick = function () {
 	moshi = 0;
 }
-document.getElementById("butt2").onclick = function() {
+document.getElementById("butt2").onclick = function () {
 	moshi = 1;
 	alert("机器没脑子 (其实是我不会加智商 (..•˘_˘•..)?? )")
 	GamerName = "你";
 	GameAnim.main(0);
-	setTimeout(function() {
+	setTimeout(function () {
 		ReGame.reAerry();
 		ReGame.rePiece();
 	}, 1000);
 };
 
 var GameInitlalize = {
-	PieceInitlalize: function() {
+	PieceInitlalize: function () {
 		for (var i = 0; i < 36; i++) {
 			GameInitlalize.clickDeal(i);
 		}
 	},
 	clickDeal: function clickDeal(x) {
-		main[x].onclick = function() {
+		main[x].onclick = function () {
 			if (moshi == 0) {
 				if (gamer == 0) {
 					main[x].style.background = "black";
@@ -62,7 +62,7 @@ var GameInitlalize = {
 					addgameNum(x, 0);
 					gamer = 1;
 				}
-				setTimeout(function() {
+				setTimeout(function () {
 					AI.Thinking();
 				}, 200);
 			}
@@ -71,20 +71,20 @@ var GameInitlalize = {
 }
 
 var AI = {
-	Generate: function(max, min, fixed = 0) {
+	Generate: function (max, min, fixed = 0) {
 		let differ = min - max;
 		let random = Math.random();
 		return (max + differ * random).toFixed(fixed);
 	},
-	Thinking: function() {
+	Thinking: function () {
 		var RandomNum = AI.Generate(1, 36);
-		console.log(AI.Judge(RandomNum) == false,RandomNum);
+		console.log(AI.Judge(RandomNum) == false, RandomNum);
 		while (AI.Judge(RandomNum) == false) {
 			RandomNum = AI.Generate(1, 36);
 		}
 		AI.execute(RandomNum)
 	},
-	Judge: function(RandomNum) {
+	Judge: function (RandomNum) {
 		var rel = 0;
 		for (var i = 0; i < RandomNum_exel.length; i++) {
 			if (RandomNum == RandomNum_exel[i]) {
@@ -93,7 +93,7 @@ var AI = {
 		}
 		return true;
 	},
-	execute: function(RandomNum) {
+	execute: function (RandomNum) {
 		main[RandomNum].style.background = "white";
 		addgameNum(RandomNum, 1);
 		DisableClick(RandomNum);
@@ -458,7 +458,7 @@ function gameRel(Parameter) {
 	GamePlayed += 1;
 	if (Parameter == "game1") {
 		GamePlayed = 0;
-		setTimeout(function() {
+		setTimeout(function () {
 			GameScore1 += 1;
 			document.getElementById("GameScore1").innerHTML = GameScore1;
 			GameAnim.Tisp();
@@ -467,14 +467,14 @@ function gameRel(Parameter) {
 			document.getElementById("tisp").innerHTML = GamerName + "赢了";
 			GameAnim.GameScore(0);
 			DisableClick(null, true);
-			setTimeout(function() {
+			setTimeout(function () {
 				ReGame.reAerry();
 				ReGame.rePiece();
 			}, 3000)
 		}, 100);
 	} else if (Parameter == "game2") {
 		GamePlayed = 0;
-		setTimeout(function() {
+		setTimeout(function () {
 			GameScore2 += 1;
 			document.getElementById("GameScore2").innerHTML = GameScore2;
 			GameAnim.Tisp();
@@ -483,20 +483,20 @@ function gameRel(Parameter) {
 			document.getElementById("tisp").innerHTML = "Gamer2赢了";
 			GameAnim.GameScore(1);
 			DisableClick(null, true);
-			setTimeout(function() {
+			setTimeout(function () {
 				ReGame.reAerry();
 				ReGame.rePiece();
 			}, 3000);
 		}, 100);
 	}
 	if (GamePlayed >= 36) {
-		setTimeout(function() {
+		setTimeout(function () {
 			GameAnim.Tisp();
 			GameAnim.main(2000);
 			document.getElementById("tisp").style.display = "block";
 			document.getElementById("tisp").innerHTML = "游戏结束";
 			DisableClick(null, true);
-			setTimeout(function() {
+			setTimeout(function () {
 				ReGame.reAerry();
 				ReGame.rePiece();
 			}, 3000);
